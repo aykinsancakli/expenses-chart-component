@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap");
+
+*::before,
+*::after,
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  // Primary
+  --soft-red: hsl(10, 79%, 65%);
+  --cyan: hsl(186, 34%, 60%);
+
+  // Neutral
+  --dark-brown: hsl(25, 47%, 15%);
+  --medium-brown: hsl(28, 10%, 53%);
+  --cream: hsl(27, 66%, 92%);
+  --very-pale-orange: hsl(33, 100%, 98%);
+}
+
+// Media Query Manager
+@mixin respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+$bp-small: 37.5em;
+
+html {
+  font-size: 62.5%;
+
+  @include respond($bp-small) {
+    font-size: 50%;
+  }
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  box-sizing: border-box;
+  background-color: var(--cream);
+
+  @include respond($bp-small) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.container {
+  max-width: 50rem;
+  margin: 12rem auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.balance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--soft-red);
+  color: var(--very-pale-orange);
+  padding: 2rem 3rem;
+  border-radius: 17px;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  &__header {
+    font-size: 1.8rem;
+    font-weight: 400;
+  }
+
+  &__amount {
+    font-size: 3.2rem;
+  }
+}
+
+.spendings {
+  padding: 3rem;
+  border-radius: 17px;
+  background-color: var(--very-pale-orange);
+
+  &__header {
+    font-size: 3rem;
+    color: var(--dark-brown);
+    margin-bottom: 3rem;
+  }
+
+  &__graph {
+    padding-bottom: 3rem;
+    margin-bottom: 3rem;
+    border-bottom: 2px solid var(--cream);
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .results {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &__main {
+      display: flex;
+      flex-direction: column;
+    }
+
+    &__header {
+      font-size: 1.8rem;
+      color: var(--medium-brown);
+    }
+
+    &__amount {
+      font-size: 4.6rem;
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    &__sub {
+      display: flex;
+      flex-direction: column;
+
+      align-self: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    &__percentage {
+      margin-left: auto;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--dark-brown);
+    }
+
+    &__sub-header {
+      font-size: 1.8rem;
+      color: var(--medium-brown);
+    }
+  }
+}

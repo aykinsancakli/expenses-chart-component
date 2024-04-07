@@ -46,6 +46,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    height: 100vh;
   }
 }
 
@@ -56,6 +57,10 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+
+  @include respond($bp-small) {
+    margin: 0;
+  }
 }
 
 .balance {
